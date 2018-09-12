@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Turing</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    p.a {
+    font-family: "Lucida Console", Monaco, monospace;
+    }
+
+body {
+    background-color:#89f8ce;
+}
+
+
+nav.navbar {
+    background-color: #006699;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+
+}
+
+</style>
+  </head>
+
+  <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">     Máquinas de Turing</a>
+    </div>
+  </div>
+</nav>  	
+    <%= yield %>
+  </body>
+</html>

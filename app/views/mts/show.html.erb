@@ -1,0 +1,249 @@
+
+<p><%=@number%></p>
+<% while @estado<17 do %> 
+
+<!-- estado q0-->
+<%if @estado==0&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a+=1	
+	 @estado=1		 
+	 @ct+=1
+end%>
+
+<%if @estado==0&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1
+	 @estado=2	
+	 @ct+=1
+end%>
+<!--estado q1 -->
+<%if @estado==1&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a+=1	
+	 @estado=14	
+	 @ct+=1	 
+end%>
+<%if @estado==1&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1
+	 @ct+=1
+	 @estado=2		 
+end%>
+
+<!--estado q2 -->
+<%if @estado==2&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a+=1	
+	 @estado=3		 
+	 @ct+=1
+end%>
+
+<%if @estado==2&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a+=1	
+	 @ct+=1
+end%>
+
+<!--estado q3 -->
+<%if @estado==3&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a-=1	
+	 @estado=15		 
+	 @ct+=1
+end%>
+
+<%if @estado==3&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1
+	 @estado=4	
+	 @ct+=1
+end%>
+<h4><%=@number.join%></h4>
+<!--estado q4 -->
+<%if @estado==4&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @estado=5
+	 @ct+=1
+end%>
+
+<%if @estado==4&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a+=1	
+	 @ct+=1
+end%>
+<!--estado q5 -->
+<%if @estado==5&&@number[@a]=="#"
+	 @number[@a]="I"
+	 @a-=1		 
+	 @estado=6
+	 @ct+=1
+
+end%>
+
+<%if @estado==5&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a+=1	
+	 @ct+=1
+end%>
+<!--estado q6 -->
+<%if @estado==6&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @estado=7
+	 @a-=1		 
+	 @ct+=1
+
+end%>
+
+<%if @estado==6&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q7 -->
+<%if @estado==7&&@number[@a]=="#"
+	 @number[@a]="I"
+	 @estado=9
+	 @a-=1
+	 @ct+=1
+end%>
+
+<%if @estado==7&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @estado=8	 
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q8 -->
+<%if @estado==8&&@number[@a]=="#"
+	 @number[@a]="I"
+	 @estado=3
+	 @a+=1		 
+	 @ct+=1
+
+end%>
+
+<%if @estado==8&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q9 -->
+<%if @estado==9&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @estado=10
+	 @a-=1		 
+	 @ct+=1	 
+end%>
+
+<%if @estado==9&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q10 -->
+<%if @estado==10&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @estado=12
+	 @a-=1		 
+	 @ct+=1
+	 
+end%>
+
+<%if @estado==10&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @estado=11	 
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q11 -->
+<%if @estado==11&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a+=1
+	 @estado=0
+	 @ct+=1	 
+end%>
+
+<%if @estado==11&&@number[@a]=="I"
+	 @number[@a]="I"
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q12 -->
+<%if @estado==12&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a+=1
+	 @ct+=1
+	
+end%>
+
+<%if @estado==12&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1	
+	 @estado=13	 
+	 @ct+=1
+end%>
+<!--estado q13 -->
+<%if @estado==13&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @estado=17
+	 @ct+=1
+
+end%>
+
+<%if @estado==13&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1	
+	 @ct+=1
+end%>
+<!--estado q14 -->
+<%if @estado==14&&@number[@a]=="#"
+	 @number[@a]="#"
+     @estado=17
+	 @ct+=1
+     if @estado==17 then
+     	break
+     end
+end%>
+
+<%if @estado==14&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a+=1	
+	 @ct+=1
+end%>
+<!--estado q15 -->
+<%if @estado==15&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @a-=1
+	 @estado=16
+	 @ct+=1
+
+end%>
+
+<%if @estado==15&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a-=1	
+	 @ct+=1
+end%>
+<!--estado q16 -->
+<%if @estado==16&&@number[@a]=="#"
+	 @number[@a]="#"
+	 @ct+=1
+     @estado=17
+     if @estado==17 then
+     	break
+     end
+end%>
+
+<%if @estado==16&&@number[@a]=="I"
+	 @number[@a]="#"
+	 @a-=1	
+	 @ct+=1
+end%>
+
+<%end%>
+<%@cuentas=@number.join%>
+<p><h1>La suma es:<%=@cuentas.count "I"%></h1></p>
+<h1><%=@cuentas%></h1>
+<h1>Cant. de movimientos:<%=@ct%></h1>
+<%=@a%>
+<%=@number%>

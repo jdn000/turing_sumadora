@@ -1,0 +1,71 @@
+
+
+      0         1       2        3       4
+#    w#R      wXR->2  w#L->3   w#L      w#H
+X    wXR->1   wXR     wXR      w#L->4   wXL
+
+
+está en q0
+lee #, escribe #, derecha
+lee X, escribe X,derecha cambia a q1
+
+if estado ==0
+    if vector[posicion]== "#"
+       vector[posicion]="#"
+       posicion+=1
+    if vector[posicion]== "X"
+       vector[posicion]="X"
+       posicion+=1
+       estado==1
+
+
+q1
+lee #, escribe X,izquierda pasa a q2
+lee X,escribe X,derecha
+
+if estado ==1
+    if vector[posicion]== "#"
+       vector[posicion]="X"
+       posicion-=1
+       estado==2
+    if vector[posicion]== "X"
+       vector[posicion]="X"
+       posicion+=1
+
+
+q2
+
+lee #,escribe #,izquierda, cambia a q3
+lee X, escribe X, derecha
+if estado ==2
+    if vector[posicion]== "#"
+       vector[posicion]="#"
+       posicion-=1
+       estado==3
+    if vector[posicion]== "X"
+       vector[posicion]="X"
+       posicion+=1
+
+
+q3
+lee #,escribe #, izquierda
+lee X,escribe #, izquierda, cambia a q4
+if estado ==3
+    if vector[posicion]== "#"
+       vector[posicion]="#"
+       posicion-=1
+    if vector[posicion]== "X"
+       vector[posicion]="#"
+       posicion-=1
+       estado==4
+
+q4
+lee #, escribe #,  termina
+lee X,escribe X ,izquierda
+if estado ==4
+    if vector[posicion]== "#"
+       vector[posicion]="#"
+       break
+    if vector[posicion]== "X"
+       vector[posicion]="X"
+       posicion-=1

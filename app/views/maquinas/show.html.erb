@@ -1,0 +1,126 @@
+
+
+
+<%while @estado<5%>
+<!-- estado q0-->
+<%if @estado==0&&@number[@a]=="#"%>
+	 <%@number[@a]="#"%>
+	 <%if @a==0%>
+	 <%@aguja[@a]="^"%>	 
+	 <%else%>	
+	 <%@aguja[@a]="^"%>	
+	 <%@aguja[@a-1]="_"%>		  
+	 <%end%>	  
+	 <%@a+=1%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+	 <%@ct+=1%>
+<%end%>
+<%if @estado==0&&@number[@a]=="I"%>
+	 <% @number[@a]="I"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>	
+	 <% @a+=1%>
+	 <% @estado=1%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+     <%@aguja[@a]="_"%>	 
+	 <%@ct+=1%>
+<%end%>
+<!--estado q1 --> 
+<%if @estado==1&&@number[@a]=="#" %>
+	 <% @number[@a]="I"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>		 
+	 <% @a+=1%>
+	 <% @estado=2%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+	 <%@aguja[@a-1]="_"%>	 	 
+	 <% @ct+=1%>
+<%end%>
+<%if @estado==1&&@number[@a]=="I"%>
+	 <% @number[@a]="I"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>	
+	 <%@a+=1%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+	 <%@aguja[@a]="_"%>	 	 
+	 <% @ct+=1%>
+<%end%>
+<!--estado q2 -->
+<%if @estado==2&&@number[@a]=="#"%>
+     <% @number[@a]="#"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>		   
+     <%@a-=1%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+     <%@aguja[@a]="_"%>	 	 	
+     <%@estado=3%>
+     <%@ct+=1%>
+<%end%>
+<%if @estado==2&&@number[@a]=="I"%>
+	 <%@number[@a]="I"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>			 
+	 <%@a+=1%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+	 <%@ct+=1%>
+<%end%>
+<!--estado q3 -->
+<%if @estado==3&&@number[@a]=="#"%>
+     <%@number[@a]="#"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a-1]="_"%>
+     <%@a-=1	%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+     <%@ct+=1%>
+     <%@aguja[@a]="_"%>	      
+<%end%>
+
+<%if @estado==3&&@number[@a]=="I"%>
+	 <%@number[@a]="#"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a+1]="_"%>
+	 <%@a-=1%>
+	 <%@estado=4%>	
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+	 <%@aguja[@a]="_"%>
+	 <%@ct+=1%>
+<%end%>
+<!--estado q4 -->
+<%if @estado==4&&@number[@a]=="#"%>
+    <%@number[@a]="#"%>
+    <%@estado=5%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a+1]="_"%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+    <%@ct+=1%>
+   <%if @estado==5 then%>
+   <%break%>
+   <%end%>
+<%end%>
+
+<%if @estado==4&&@number[@a]=="I"%>
+     <%@number[@a]="I"%>
+	 <%@aguja[@a]="^"%>	 
+	 <%@aguja[@a+1]="_"%>    
+     <%@a-=1	%>
+     <p class="a"><strong>Cinta-> </strong><%=@number.join%></p>
+	 <p class="a"><strong>Cabezal</strong> <%=@aguja.join%></p>
+     <%@ct+=1%>
+     <%end%>
+<%end%>
+
+<%@cuentas=@number.join%>
+<p><h1>La suma es:<%=@cuentas.count "I"%></h1></p>
+
+<h1>Cant. de movimientos:<%=@ct%></h1>
+
+<p><div class="btn btn-primary"><%= link_to 'Inicio',root_path, class: "btn btn-primary" %></div></p>

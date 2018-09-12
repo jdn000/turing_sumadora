@@ -1,0 +1,10 @@
+
+<%= form_for(@maquina) do |f| %>
+
+  <%= f.label :valor1%>
+  <%= f.number_field :valor, class: 'form-control' %>
+  <%= f.label :valor2%>
+  <%= f.number_field :valor1, class: 'form-control' %>
+
+<%= f.submit "Inscribir", class: "btn btn-primary" %>
+<% end %>
