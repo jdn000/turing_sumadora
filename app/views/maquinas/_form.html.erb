@@ -1,10 +1,10 @@
 
 <%= form_for(@maquina) do |f| %>
-
-  <%= f.label :valor1%>
+<h1> Ingrese 2 numeros</h1>
+  <%= f.label :número%>
   <%= f.number_field :valor, class: 'form-control' %>
-  <%= f.label :valor2%>
+  <%= f.label :número%>
   <%= f.number_field :valor1, class: 'form-control' %>
 
-<%= f.submit "Inscribir", class: "btn btn-primary" %>
+<%= f.submit "Ingresar", class: "btn btn-primary" %>
 <% end %>
